@@ -76,6 +76,10 @@ function ScoreKeeperViewModel() {
 	that.player2 = ko.observable("");
 
 	that.scoreEntries = ko.observableArray([new ScoreEntry()]);
+
+	that.addLines = function() {
+		for (var i = 0; i < 5; ++i) that.scoreEntries.push(new ScoreEntry());
+	}
 }
 
 var vm = new ScoreKeeperViewModel();

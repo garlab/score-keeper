@@ -21,6 +21,8 @@
     <![endif]-->
   </head>
   <body>
+    <div class="container">
+
     <h1>Score Keeper</h1>
 
     <h2>Nom des joueurs</h2>
@@ -55,18 +57,18 @@
       <tbody data-bind="foreach: scoreEntries">
         <tr>
           <!-- Annonces -->
-          <td><input type="number" data-bind="value: players[0].annonce"></td>
-          <td><input type="number" data-bind="value: players[1].annonce"></td>
+          <td><input type="number" data-bind="value: players[0].annonce" step="10"></td>
+          <td><input type="number" data-bind="value: players[1].annonce" step="10"></td>
           
-          <td><input type="number" data-bind="value: players[0].pointsMarquees"></td>
-          <td><input type="number" data-bind="value: players[1].pointsMarquees"></td>
+          <td><input type="number" data-bind="value: players[0].pointsMarquees" step="10"></td>
+          <td><input type="number" data-bind="value: players[1].pointsMarquees" step="10"></td>
           
           <td><input type="checkbox" data-bind="checked: players[0].belote"></td>
           <td><input type="checkbox" data-bind="checked: players[1].belote"></td>
           
           <!-- Total manche -->
-          <td data-bind="text: scores()[0]"></td>
-          <td data-bind="text: scores()[1]"></td>
+          <td><input type="number" data-bind="value: scores()[0]" readonly></td>
+          <td><input type="number" data-bind="value: scores()[1]" readonly></td>
           
           <!-- Total partie -->
           <td>0</td>
@@ -74,6 +76,13 @@
         </tr>
       </tbody>
     </table>
+
+    <button class="btn btn-default" data-bind="click: addLines">
+      <span class="glyphicon glyphicon-plus"></span>
+      Plus de lignes
+    </button>
+
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
