@@ -33,7 +33,7 @@ function ScorePlayer() {
 	})
 }
 
-function ScoreEntry() {
+function ScoreEntry(previous) {
 	var that = this;
 
 	that.players = [
@@ -57,6 +57,17 @@ function ScoreEntry() {
 
 		return scores;
 	});
+
+	that.cumulative = ko.computed(function() {
+		var cumulative = that.scores().slice();
+
+		if (previous) {
+			cumulative[0] += previous.cumulative()[0];
+			cumulative[1] += previous.cumulative()[1];
+		}
+
+		return cumulative;
+	});
 }
 
 var mockScoreEntry = {
@@ -78,7 +89,12 @@ function ScoreKeeperViewModel() {
 	that.scoreEntries = ko.observableArray([new ScoreEntry()]);
 
 	that.addLines = function() {
-		for (var i = 0; i < 5; ++i) that.scoreEntries.push(new ScoreEntry());
+		var curIndex = that.scoreEntries().length - 1;
+
+		for (var i = 0; i < 5; ++i) {
+			var previous = that.scoreEntries()[curIndex + i];
+			that.scoreEntries.push(new ScoreEntry(previous));
+		}
 	}
 }
 
