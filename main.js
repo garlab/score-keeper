@@ -1,8 +1,8 @@
 function ScorePlayer() {
 	var that = this;
 
-	that.annonce = ko.observable(0);
-	that.pointsMarquees = ko.observable(0);
+	that.annonce = ko.observable();
+	that.pointsMarquees = ko.observable();
 	that.belote = ko.observable(false);
 
 	that.pointsBelote = ko.computed(function() {
