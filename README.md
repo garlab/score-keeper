@@ -1,9 +1,5 @@
 # TODO
 
-## Bugs
-
-- Fix score when "dedans"
-
 ## Utilisabilité
 
 - Mettre le champ du joueur qui n'a pas annoncé en readonly

@@ -46,10 +46,10 @@ function ScoreEntry(previous) {
 
 		if (that.players[0].dedans()) {
 			scores[0] = that.players[0].pointsBelote();
-			scores[1] = that.players[1].totalMarquees() + +that.players[0].annonce();
+			scores[1] = 160 + +that.players[0].annonce();
 		} else if (that.players[1].dedans()) {
 			scores[1] = that.players[1].pointsBelote();
-			scores[0] = that.players[0].totalMarquees() + +that.players[1].annonce();
+			scores[0] = 160 + +that.players[1].annonce();
 		} else {
 			scores[0] = that.players[0].totalAvecAnnonce();
 			scores[1] = that.players[1].totalAvecAnnonce();
