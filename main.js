@@ -86,7 +86,8 @@ var mockScoreEntry = {
 };
 
 function ScoreKeeperViewModel() {
-	var that = this;
+	var that = this,
+		localStorage = window.localStorage;
 
 	that.player1 = ko.observable("");
 	that.player2 = ko.observable("");
@@ -100,6 +101,21 @@ function ScoreKeeperViewModel() {
 			var previous = that.scoreEntries()[curIndex + i];
 			that.scoreEntries.push(new ScoreEntry(previous));
 		}
+	}
+
+	if (localStorage) {
+		storePlayerName("player1");
+		storePlayerName("player2");
+	}
+
+	function storePlayerName(playerId) {
+		var player = that[playerId],
+			playerName = localStorage.getItem(playerId) || "";
+
+		player(playerName);
+		player.subscribe(function(newPlayerName) {
+			localStorage.setItem(playerId, newPlayerName);
+		})
 	}
 }
 
