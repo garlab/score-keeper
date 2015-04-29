@@ -1,9 +1,5 @@
 # TODO
 
-## Bugs
-
-- Two players can check "belote" in the same game
-
 ## Utilisabilité
 
 - Calculer automatiquement les points marquées de l'adversaire lorsqu'on entre les points marqués

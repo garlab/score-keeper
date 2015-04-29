@@ -77,6 +77,15 @@ function ScoreEntry(previous) {
 
 		return cumulative;
 	});
+
+	checkBelote(that.players[0], that.players[1]);
+	checkBelote(that.players[1], that.players[0]);
+
+	function checkBelote(player1, player2) {
+		player1.belote.subscribe(function(belote) {
+			if (belote) player2.belote(false);
+		});
+	}
 }
 
 function ScoreKeeperViewModel() {
