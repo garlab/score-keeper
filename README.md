@@ -2,7 +2,6 @@
 
 ## Bugs
 
-- Disabled input doesn't value 0
 - Two players can check "belote" in the same game
 
 ## Utilisabilité

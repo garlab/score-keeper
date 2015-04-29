@@ -18,19 +18,23 @@ function ScorePlayer() {
 		return pointsMarquees + pointsBelote;
 	});
 
+	// Computed
+
 	that.dedans = ko.computed(function() {
-		var annonce = +that.annonce(),
+		var annonce = +that.annonce() || 0,
 			totalMarquees = that.totalMarquees();
 
 		return annonce > totalMarquees;
 	});
 
 	that.totalAvecAnnonce = ko.computed(function() {
-		var annonce = +that.annonce(),
+		var annonce = +that.annonce() || 0,
 			totalMarquees = that.totalMarquees();
 
 		return annonce + totalMarquees;
-	})
+	});
+
+
 }
 
 function ScoreEntry(previous) {
@@ -42,7 +46,8 @@ function ScoreEntry(previous) {
 	];
 
 	that.scores = ko.computed(function() {
-		var scores = [0, 0];
+		var scores = [0, 0],
+			annonces = that.players.map(function(player) { return +player.annonce() || 0; });
 
 		if (that.players[0].dedans()) {
 			scores[0] = that.players[0].pointsBelote();
