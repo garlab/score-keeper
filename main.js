@@ -80,10 +80,18 @@ function ScoreEntry(previous) {
 
 	checkBelote(that.players[0], that.players[1]);
 	checkBelote(that.players[1], that.players[0]);
+	guessPointsMarquees(that.players[0], that.players[1]);
+	guessPointsMarquees(that.players[1], that.players[0]);
 
 	function checkBelote(player1, player2) {
 		player1.belote.subscribe(function(belote) {
 			if (belote) player2.belote(false);
+		});
+	}
+
+	function guessPointsMarquees(player1, player2) {
+		player1.pointsMarquees.subscribe(function(pointsMarquees) {
+			if (!player2.pointsMarquees()) player2.pointsMarquees(162 - pointsMarquees);
 		});
 	}
 }
