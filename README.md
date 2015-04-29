@@ -2,11 +2,12 @@
 
 ## Bugs
 
+- Disabled input doesn't value 0
 - Two players can check "belote" in the same game
 
 ## Utilisabilité
 
-- Automatiquement calculée les points marquées de l'adversaire lorsqu'on entre les points marqués
-- Arrondir automatiquement les score au suppérieur
+- Calculer automatiquement les points marquées de l'adversaire lorsqu'on entre les points marqués
+- Arrondir automatiquement les scores au suppérieur
 - Automatiquement ajouter une ligne lorsque le score de la ligne courante est entré
-- Mettre à jour les inputs immédiatement
+- Faire automatiquement démarrer l'annonce à 80 quand on clique sur la fleche

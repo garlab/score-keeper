@@ -32,11 +32,11 @@
     <form class="form-inline">
       <div class="form-group">    
         <label for="player1">Joueur 1</label>
-        <input id="player1" type="text" placeholder="Joueur 1" data-bind="value: player1">
+        <input id="player1" type="text" placeholder="Joueur 1" data-bind="textInput: player1">
       </div>
       <div class="form-group">    
         <label for="player2">Joueur 2</label>
-        <input id="player2" type="text" placeholder="Joueur 2" data-bind="value: player2">
+        <input id="player2" type="text" placeholder="Joueur 2" data-bind="textInput: player2">
       </div>
     </form>
 
@@ -60,11 +60,11 @@
       <tbody data-bind="foreach: scoreEntries">
         <tr>
           <!-- Annonces -->
-          <td><input type="number" data-bind="value: players[0].annonce, attr: {disabled: players[1].annonce() ? 1 : null}" step="10"></td>
-          <td><input type="number" data-bind="value: players[1].annonce, attr: {disabled: players[0].annonce() ? 1 : null}" step="10"></td>
+          <td><input type="number" data-bind="textInput: players[0].annonce, attr: {disabled: players[1].annonce() ? 1 : null}" step="10"></td>
+          <td><input type="number" data-bind="textInput: players[1].annonce, attr: {disabled: players[0].annonce() ? 1 : null}" step="10"></td>
           
-          <td><input type="number" data-bind="value: players[0].pointsMarquees" step="10"></td>
-          <td><input type="number" data-bind="value: players[1].pointsMarquees" step="10"></td>
+          <td><input type="number" data-bind="textInput: players[0].pointsMarquees" step="10"></td>
+          <td><input type="number" data-bind="textInput: players[1].pointsMarquees" step="10"></td>
           
           <td><input type="checkbox" data-bind="checked: players[0].belote"></td>
           <td><input type="checkbox" data-bind="checked: players[1].belote"></td>
