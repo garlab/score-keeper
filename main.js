@@ -75,16 +75,6 @@ function ScoreEntry(previous) {
 	});
 }
 
-var mockScoreEntry = {
-	players: [
-		{annonce: 120, pointsMarquees: 110, belote: true},
-		{annonce: 0, pointsMarquees: 50, belote: false},
-	],
-	scores: function() {
-		return [250, 50];
-	}
-};
-
 function ScoreKeeperViewModel() {
 	var that = this,
 		localStorage = window.localStorage;
@@ -118,6 +108,3 @@ function ScoreKeeperViewModel() {
 		})
 	}
 }
-
-var vm = new ScoreKeeperViewModel();
-ko.applyBindings(vm);
