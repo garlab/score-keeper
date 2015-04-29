@@ -34,7 +34,11 @@ function ScorePlayer() {
 		return annonce + totalMarquees;
 	});
 
+	// Subscribers
 
+	that.annonce.subscribe(function(annonce) {
+		if (annonce < 80) that.annonce(80);
+	});
 }
 
 function ScoreEntry(previous) {
