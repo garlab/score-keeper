@@ -12,7 +12,7 @@ function ScorePlayer() {
 	});
 
 	that.totalMarquees = ko.computed(function() {
-		var pointsMarquees = +that.pointsMarquees(),
+		var pointsMarquees = Math.round(+that.pointsMarquees() / 10) * 10,
 			pointsBelote = that.pointsBelote();
 
 		return pointsMarquees + pointsBelote;
