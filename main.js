@@ -37,7 +37,9 @@ function ScorePlayer() {
 	// Subscribers
 
 	that.annonce.subscribe(function(annonce) {
-		if (annonce < 80) that.annonce(80);
+		if (annonce <= 0) that.annonce(0);
+		else if (annonce < 80) that.annonce(80);
+		else if (annonce > 250) that.annonce(250);
 	});
 }
 
