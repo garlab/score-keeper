@@ -107,13 +107,19 @@ function ScoreKeeperViewModel() {
 
 	that.scoreEntries = ko.observableArray([new ScoreEntry()]);
 
+	var subscription = that.scoreEntries()[0].scores.subscribe(addLine);
+
 	that.addLines = function() {
 		var curIndex = that.scoreEntries().length - 1;
+
+		if (subscription) subscription.dispose();
 
 		for (var i = 0; i < 5; ++i) {
 			var previous = that.scoreEntries()[curIndex + i];
 			that.scoreEntries.push(new ScoreEntry(previous));
 		}
+
+		subscription = lastScore().scores.subscribe(addLine);
 	}
 
 	if (localStorage) {
@@ -129,5 +135,19 @@ function ScoreKeeperViewModel() {
 		player.subscribe(function(newPlayerName) {
 			localStorage.setItem(playerId, newPlayerName);
 		})
+	}
+
+	function lastScore() {
+		var scores = that.scoreEntries();
+
+		return scores[scores.length - 1];
+	}
+
+	function addLine() {
+		var newScore = new ScoreEntry(lastScore());
+
+		if (subscription) subscription.dispose();
+		that.scoreEntries.push(newScore);
+		subscription = newScore.scores.subscribe(addLine);
 	}
 }
