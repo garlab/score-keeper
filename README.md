@@ -4,7 +4,6 @@
 
 - Erreur de l'arrondit
 - Pas synchro du score
-- input annonce bizarre
 
 ## Featurees (high priority)
 

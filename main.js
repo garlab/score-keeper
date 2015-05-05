@@ -1,4 +1,4 @@
-function ScorePlayer() {
+ function ScorePlayer() {
 	var that = this;
 
 	that.annonce = ko.observable();
@@ -36,9 +36,15 @@ function ScorePlayer() {
 
 	// Subscribers
 
-	that.annonce.subscribe(function(annonce) {
+	that.annonce.subscribe(function(annonce, old) {
 		if (annonce <= 0) that.annonce(0);
+		else if (annonce == 8 || annonce == 800) that.annonce(80);
+		else if (annonce == 9 || annonce == 900) that.annonce(90);
+		else if (annonce == 1 || annonce == 1000) that.annonce(100);
+		else if (annonce > 1000 && annonce < 1009) that.annonce(100 + annonce % 10 * 10);
 		else if (annonce < 80) that.annonce(80);
+		else if (annonce == 190) that.annonce(250);
+		else if (annonce == 240) that.annonce(180);
 		else if (annonce > 250) that.annonce(250);
 	});
 }
