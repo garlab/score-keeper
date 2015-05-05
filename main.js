@@ -22,9 +22,10 @@
 
 	that.dedans = ko.computed(function() {
 		var annonce = +that.annonce() || 0,
-			totalMarquees = that.totalMarquees();
+			pointsMarquees = +that.pointsMarquees() || 0,
+			pointsBelote = that.pointsBelote();
 
-		return annonce > totalMarquees;
+		return annonce > pointsMarquees + pointsBelote;
 	});
 
 	that.totalAvecAnnonce = ko.computed(function() {

@@ -1,9 +1,5 @@
 # TODO
 
-## Bugs
-
-- Erreur de l'arrondit
-
 ## Featurees (high priority)
 
 - Prendre en compte capot
