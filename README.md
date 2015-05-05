@@ -3,7 +3,6 @@
 ## Bugs
 
 - Erreur de l'arrondit
-- Pas synchro du score
 
 ## Featurees (high priority)
 

@@ -99,7 +99,19 @@ function ScoreEntry(previous) {
 
 	function guessPointsMarquees(player1, player2) {
 		player1.pointsMarquees.subscribe(function(pointsMarquees) {
-			if (!player2.pointsMarquees()) player2.pointsMarquees(162 - pointsMarquees);
+			// Checking bounds for player 1
+			if (pointsMarquees < 0) player1.pointsMarquees(0);
+			else if (pointsMarquees == 163) player1.pointsMarquees(250);
+			else if (pointsMarquees == 249) player1.pointsMarquees(162);
+			else if (pointsMarquees == 251) player1.pointsMarquees(500);
+			else if (pointsMarquees == 499) player1.pointsMarquees(250);
+
+			// If player1's score is valid, then we update score for player2
+			else if (pointsMarquees <= 162) player2.pointsMarquees(162 - pointsMarquees);
+			else if (pointsMarquees == 250 || pointsMarquees == 500) player2.pointsMarquees(0);
+
+			// If none of the above, we arbitrary set player1's score to 162
+			else player1.pointsMarquees(162);
 		});
 	}
 }

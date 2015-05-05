@@ -69,8 +69,8 @@
           <td><input type="number" data-bind="textInput: players[0].annonce, disable: players[1].annonce() > 0" step="10"></td>
           <td><input type="number" data-bind="textInput: players[1].annonce, disable: players[0].annonce() > 0" step="10"></td>
           
-          <td><input type="number" data-bind="value: players[0].pointsMarquees" step="1"></td>
-          <td><input type="number" data-bind="value: players[1].pointsMarquees" step="1"></td>
+          <td><input type="number" data-bind="textInput: players[0].pointsMarquees" step="1"></td>
+          <td><input type="number" data-bind="textInput: players[1].pointsMarquees" step="1"></td>
           
           <td><input type="checkbox" data-bind="checked: players[0].belote"></td>
           <td><input type="checkbox" data-bind="checked: players[1].belote"></td>
