@@ -5,7 +5,6 @@
 - Prendre en compte capot
 - Case couinche
 - Calcul score couinche
-- Afficher le donneur
 - Mode 4 joueurs
 
 ## Features (Low priority)
