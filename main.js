@@ -117,42 +117,42 @@ function ScoreEntry(previous) {
 	}
 }
 
+function Utils() {
+	var that = this;
+
+	that.scoreToutAtout = ko.observable("");
+	that.convertedScore = ko.computed(function() {
+		var scoreToutAtout = +that.scoreToutAtout();
+		return Math.round(162 * scoreToutAtout / 258);
+	});
+}
+
 function ScoreKeeperViewModel() {
 	var that = this,
 		localStorage = window.localStorage;
 
-	that.player1 = ko.observable("");
-	that.player2 = ko.observable("");
+	that.players = [
+		ko.observable(""),
+		ko.observable(""),
+	];
 
 	that.scoreEntries = ko.observableArray([new ScoreEntry()]);
 
 	var subscription = that.scoreEntries()[0].scores.subscribe(addLine);
 
-	that.addLines = function() {
-		var curIndex = that.scoreEntries().length - 1;
-
-		if (subscription) subscription.dispose();
-
-		for (var i = 0; i < 5; ++i) {
-			var previous = that.scoreEntries()[curIndex + i];
-			that.scoreEntries.push(new ScoreEntry(previous));
-		}
-
-		subscription = lastScore().scores.subscribe(addLine);
-	}
-
 	if (localStorage) {
-		storePlayerName("player1");
-		storePlayerName("player2");
+		storePlayerName(0);
+		storePlayerName(1);
 	}
 
 	function storePlayerName(playerId) {
-		var player = that[playerId],
-			playerName = localStorage.getItem(playerId) || "";
+		var player = that.players[playerId],
+			playerLabel = "player" + (playerId + 1),
+			playerName = localStorage.getItem(playerLabel) || "";
 
 		player(playerName);
 		player.subscribe(function(newPlayerName) {
-			localStorage.setItem(playerId, newPlayerName);
+			localStorage.setItem(playerLabel, newPlayerName);
 		})
 	}
 
@@ -169,4 +169,6 @@ function ScoreKeeperViewModel() {
 		that.scoreEntries.push(newScore);
 		subscription = newScore.scores.subscribe(addLine);
 	}
+
+	that.utils = new Utils();
 }
