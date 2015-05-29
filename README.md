@@ -1,6 +1,6 @@
 # TODO
 
-## Featurees (high priority)
+## Features (high priority)
 
 - Case couinche
 - Calcul score couinche
@@ -15,5 +15,4 @@
 
 ## Misc
 
-- Put on github
 - Mobile version with phonegap or cordova
