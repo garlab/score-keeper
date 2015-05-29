@@ -172,11 +172,16 @@ function ScoreKeeperViewModel() {
 
 	that.utils = new Utils();
 
-	that.switchAnnonce = function(scoreEntry) {
-		var scores = scoreEntry.players,
-			s1 = scores[0].annonce(),
-			s2 = scores[1].annonce();
-		scores[0].annonce(s2);
-		scores[1].annonce(s1);
-	};
+	function switchFields(field) {
+		return function(scoreEntry) {
+			var scores = scoreEntry.players,
+				s1 = scores[0][field](),
+				s2 = scores[1][field]();
+			scores[0][field](s2);
+			scores[1][field](s1);
+		};
+	}
+
+	that.switchAnnonce = switchFields('annonce');
+	that.switchPointsMarquees = switchFields('pointsMarquees');
 }

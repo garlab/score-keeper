@@ -70,7 +70,7 @@
           <td><input type="number" data-bind="textInput: players[1].annonce, disable: players[0].annonce() > 0" step="10"></td>
           
           <td><input type="number" data-bind="textInput: players[0].pointsMarquees" step="1"></td>
-          <td><button class="glyphicon glyphicon-transfer"></button></td>
+          <td><button class="glyphicon glyphicon-transfer" data-bind="click: function() { $parent.switchPointsMarquees($data); }"></button></td>
           <td><input type="number" data-bind="textInput: players[1].pointsMarquees" step="1"></td>
           
           <td><input type="checkbox" data-bind="checked: players[0].belote"></td>

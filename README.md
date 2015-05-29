@@ -4,7 +4,6 @@
 
 - Case couinche
 - Calcul score couinche
-- Button switch/reverse
 - Gérer "pas de prise"
 - Mode 4 joueurs
 
@@ -12,6 +11,8 @@
 
 - Add settings page?
 - Add score max?
+- Store score and/or prevent reload
+- Store statistics
 
 ## Misc
 
