@@ -2,9 +2,10 @@
 
 ## Featurees (high priority)
 
-- Prendre en compte capot
 - Case couinche
 - Calcul score couinche
+- Button switch/reverse
+- Gérer "pas de prise"
 - Mode 4 joueurs
 
 ## Features (Low priority)
