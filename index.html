@@ -26,9 +26,13 @@
   <body>
     <div class="container">
 
-    <h1>Score Keeper</h1>
+      <div class="header">
+        <h1>Score Keeper</h1>
+        <h2>Feuille de score pour la coinche</h2>
+      </div>
 
-    <h2>Nom des joueurs</h2>
+    <div class="main">
+    <h3>Nom des joueurs</h3>
     <form class="form-inline">
       <div class="form-group">    
         <label for="player1">Joueur 1</label>
@@ -87,7 +91,7 @@
       </tbody>
     </table>
 
-    <h2>Utilitaire</h2>
+    <h3>Utilitaire</h3>
     <form class="form-inline" data-bind="with: utils">
       <div class="form-group">
         <label for="scoreToutAtout">Score tout atout</label>
@@ -100,6 +104,7 @@
     </form>
 
     </div>
+  </div>
 
     <!-- Latest minified version of KnckoutJs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>

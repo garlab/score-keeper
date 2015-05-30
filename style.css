@@ -1,3 +1,29 @@
+body{
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+
+}
+.container{
+}
+.header{
+	background-image: url("bg.jpg"); 
+	text-align: center;
+	height: 200px;
+}
+.main{
+	background-image: url("bg2.jpg");
+}
+h1{
+	text-transform: uppercase;
+	color: #324B4B;
+	font-size: 550%
+}
+h2{
+	color:#fff;
+	font-size: 30px;
+}
 input[type=number] {
 	width: 5em
+}
+h2{
+
 }
