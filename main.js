@@ -18,8 +18,6 @@
 		return pointsMarquees + pointsBelote;
 	});
 
-	// Computed
-
 	that.dedans = ko.computed(function() {
 		var annonce = +that.annonce() || 0,
 			pointsMarquees = +that.pointsMarquees() || 0,
@@ -138,6 +136,12 @@ function ScoreKeeperViewModel() {
 
 	that.scoreEntries = ko.observableArray([new ScoreEntry()]);
 
+	that.lastScore = ko.computed(function() {
+		var scores = that.scoreEntries();
+
+		return scores[scores.length - 1];
+	});
+
 	var subscription = that.scoreEntries()[0].scores.subscribe(addLine);
 
 	if (localStorage) {
@@ -156,14 +160,8 @@ function ScoreKeeperViewModel() {
 		})
 	}
 
-	function lastScore() {
-		var scores = that.scoreEntries();
-
-		return scores[scores.length - 1];
-	}
-
 	function addLine() {
-		var newScore = new ScoreEntry(lastScore());
+		var newScore = new ScoreEntry(that.lastScore());
 
 		if (subscription) subscription.dispose();
 		that.scoreEntries.push(newScore);
